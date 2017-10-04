@@ -43,3 +43,12 @@ export function get_users_history(user_id = 0) {
         payload: user_history
     }
 }
+
+export function signed_in() {
+    const sign_in = axios.post(`/php/navlogin.php`);
+
+    return {
+        type: types.SIGNED_IN,
+        payload: sign_in
+    }
+}

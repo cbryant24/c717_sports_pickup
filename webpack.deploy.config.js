@@ -1,21 +1,14 @@
 const { resolve } = require('path');
 const webpack = require('webpack');
-const PORT = process.env.PORT || 3000;
 
 module.exports = {
-    entry: [
-        //'react-hot-loader/patch',
-        'webpack-dev-server/client?http://localhost:' + PORT,
-        //'webpack/hot/only-dev-server',
-        './index.js'
-    ],
+    entry: [ './index.js' ],
     output: {
         filename: 'bundle.js',
         path: resolve(__dirname, 'dist'),
         publicPath: '/dist'
     },
     context: resolve(__dirname, 'src'),
-    devtool: 'inline-source-map',
     module: {
         rules: [
             {
@@ -29,13 +22,20 @@ module.exports = {
             },
             {
                 test: /\.(gif|png|jpe?g|svg)$/i,
-                use: [ 'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
-                    'image-webpack-loader?bypassOnDebug' ]
+                loader: 'file-loader', options: {
+                    publicPath: 'dist/imgs/',
+                    name: '[sha512:hash:base64:12].[ext]',
+                    outputPath: 'imgs/'
+                }
             }
         ]
     },
     plugins: [
-        //new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin()
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('production')
+            }
+        }),
+        new webpack.optimize.UglifyJsPlugin()
     ]
 };
