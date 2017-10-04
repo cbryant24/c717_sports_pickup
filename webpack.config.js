@@ -1,18 +1,15 @@
 const { resolve } = require('path');
 const webpack = require('webpack');
-const PORT = process.env.PORT || 3000;
 
 module.exports = {
     entry: [
-        //'react-hot-loader/patch',
-        'webpack-dev-server/client?http://localhost:' + PORT,
-        //'webpack/hot/only-dev-server',
+        'webpack-dev-server/client?http://localhost:3000',
         './index.js'
     ],
     output: {
         filename: 'bundle.js',
         path: resolve(__dirname, 'dist'),
-        publicPath: '/dist'
+        publicPath: '/'
     },
     context: resolve(__dirname, 'src'),
     devtool: 'inline-source-map',
@@ -35,7 +32,6 @@ module.exports = {
         ]
     },
     plugins: [
-        //new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin()
     ]
 };
