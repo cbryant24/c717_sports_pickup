@@ -14,7 +14,7 @@ class Game_Details_Box extends Component {
     }
 
     handle_join_game_click() {
-        console.log('these are the details for clicking join game', this.props)
+        console.log('these are the details for clicking join game', this.props);
         game_id = this.props.active_games.data.data[0].game_id
         
         // this.props.history.push('/your_games')
@@ -22,41 +22,55 @@ class Game_Details_Box extends Component {
     }
 
     render() {
-        console.log('this is inside the render of game_details', this.props)
+        console.log('this is inside the render of game_details', this.props);
         // const {auth} = this.props;
-        if(this.props.active_games.data) {
-            if(this.props.active_games.data.data.length > 0) {
-                return (
-                    <div className='col-lg-4 col-12' id="game_details_box">
-                    <div className='gameinfobox'>
-                        <h3>{this.props.active_games.data.data[0].title}</h3>
-                        <p>{this.props.active_games.data.data[0].desc}</p>
-                        <h6>{`${this.props.active_games.data.data[0].time} ${this.props.active_games.data.data[0].date}`}</h6>
-                        <button onClick={ () => this.handle_join_game_click()} className='btn btn-outline btn-xl joinbtn'>Join Game</button>
-                    </div>
-                </div>
-                )
-            }
-        }
+        // if (this.props.active_games.data) {
+        //     if (this.props.active_games.data.data.length > 0) {
+        //         return (
+        //             <div className='col-lg-4 col-12' id="game_details_box">
+        //                 <div className='gameinfobox'>
+        //                     <h3>{this.props.active_games.data.data[0].title}</h3>
+        //                     <p>{this.props.active_games.data.data[0].desc}</p>
+        //                     <h6>{`${this.props.active_games.data.data[0].time} ${this.props.active_games.data.data[0].date}`}</h6>
+        //                     <button onClick={ () => this.handle_join_game_click()}
+        //                             className='btn btn-outline btn-xl joinbtn'>Join Game
+        //                     </button>
+        //                 </div>
+        //             </div>
+        //         )
+        //     }
+        // }
+
         // if(Object.keys(this.props.single_game).length !== 0) {
         //     return (
         //         <div className='col-lg-4 col-12' id="game_details_box">
-        //         <div className='gameinfobox'>
-        //             <h3>{this.props.single_game[0].game_title}</h3>
-        //             <p>{this.props.single_game[0].description}</p>
-        //             <h6>{`${this.props.single_game[0].game_time} ${this.props.single_game[0].game_date}`}</h6>
-        //             <button onClick={ () => this.handle_join_game_click()} className='btn btn-outline btn-xl joinbtn'>Join Game</button>
+        //             <div className='gameinfobox'>
+        //                 <h3>{this.props.single_game[0].game_title}</h3>
+        //                 <p>{this.props.single_game[0].description}</p>
+        //                 <h6>{`${this.props.single_game[0].game_time} ${this.props.single_game[0].game_date}`}</h6>
+        //                 <button onClick={ () => this.handle_join_game_click()}
+        //                         className='btn btn-outline btn-xl joinbtn'>Join Game
+        //                 </button>
+        //             </div>
         //         </div>
-        //     </div>
         //     )
-        else {
-            return (
-                <div>Enter a Zip Code</div>
-            )
-        }
+        // }
+        // else {
+        return (
+            <div className='col-lg-4 col-12' id="game_details_box">
+                <div className='gameinfobox'>
+                    <h3>Fuck Andy</h3>
+                    <p>Fuck Andy</p>
+                    <h6>Fuck Andy</h6>
+                    <button onClick={ () => this.handle_join_game_click()}
+                        className='btn btn-outline btn-xl joinbtn'>Join Andy
+                    </button>
+                </div>
+            </div>
+        )
     }
-        
 }
+
 
 function mapStateToProps(state) {
     return {
