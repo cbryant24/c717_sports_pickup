@@ -291,9 +291,9 @@ header.masthead.home {
 
 
 
-body{
-  padding-top: 5%;
-}
+/*body{*/
+  /*padding-top: 5%;*/
+/*}*/
 
 @media only screen and (max-width: 768px) {
   .game-map{
@@ -346,7 +346,7 @@ body{
   height: 31.5vh;
   background-color: white;
   color: black;
-  text-align: center;
+  /*text-align: center;*/
   font-size: 13px;
   font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
   letter-spacing: 2px;
