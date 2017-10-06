@@ -21,7 +21,6 @@ body {
   background: url("../img/bg-pattern.png"), -moz-linear-gradient(bottom right,#ff0000, #fff544); /* For Firefox 3.6 to 15 */;
   background: url("../img/bg-pattern.png"), linear-gradient(to bottom right,#ff0000, #fff544); /* Standard syntax */;  
   background-repeat: repeat;
-  height: 100vh;
 }
 
 a {
@@ -83,9 +82,9 @@ hr {
   padding: 15px 50px;
   margin: 10px;
 }
-/* .joinbtn{
+.joinbtn{
   display: block;
-} */
+}
 .viewbtn, .joinbtn{
   margin: 0;
   padding: 15px 20%;
@@ -129,17 +128,10 @@ input[type=date], input[type=time]{
 /*NAVBAR*//*NAVBAR*//*NAVBAR*//*NAVBAR*//*NAVBAR*//*NAVBAR*//*NAVBAR*/
 /*|_______________________________________________________________________________________________|*/
 /*|_______________________________________________________________________________________________|*/
-.navbar .container {
-    height: 10vh;
-}
 .nav-link-box{
     display: inline-block;
     float: right;
     padding-top: 10px;
-}
-
-.navbar{
-  padding: 2vh 0;
 }
 
 .navbar-nav {
@@ -160,13 +152,7 @@ input[type=date], input[type=time]{
 #mainNav {
     background: rgba(0, 0, 0, 0.1);
     box-shadow: 0 0px 5px;
-    max-height: 10vh;
-    min-height: 5vh;
-    height: 10vh;
-    padding-top: 2vh;
-    padding-bottom: 2vh;
 }
-
 #mainNav .navbar-brand {
   color: #fdcc52;
   font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
@@ -174,28 +160,20 @@ input[type=date], input[type=time]{
   letter-spacing: 1px; 
   color: fade(white, 70%);
 }
-#mainNav .navbar-nav > li > a{
+#mainNav .navbar-nav > li > a {
   font-size: 11px;
   font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
   letter-spacing: 2px;
   text-transform: uppercase; 
   color: rgba(255, 255, 255, 0.7); 
 }
-
-a.mx-3 {
-    font-size: 11px;
-    font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.7);
-}
-
+/*#mainNav .navbar-brand:hover, #mainNav .navbar-brand:focus {
+  color: #fcbd20; 
+}*/
 #mainNav .navbar-nav > li > a:hover,
 #mainNav .navbar-nav > li > a:focus:hover {
     color: yellow; 
   }
-
-
 /*
 @media (max-width: 992px) {
   #mainNav {
@@ -284,17 +262,9 @@ header.masthead.home {
 
 .game-map{
   width: 100%;
-  margin-top: 10.5vh;
+  margin-top: 63px;
   height: 50vh;
-
 }
-
-
-
-body{
-  padding-top: 5%;
-}
-
 @media only screen and (max-width: 768px) {
   .game-map{
     margin-top: 100px;
@@ -307,16 +277,14 @@ body{
   }
 }
 @media only screen and (max-width: 440px) {
-  .game-map {
+  .game-map{
     margin-top: 108px !important;
 
   }
-
   .navbar {
     padding-right: 0;
     padding-left: 0;
   }
-
   .navbar > .container {
     padding-right: 0;
     padding-bottom: 0.5rem;
@@ -330,12 +298,12 @@ body{
   text-align: center;
   font-size: 20px;
   font-weight: bold;
-  width: 100%;
+
   font-size: 11px;
   font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
   letter-spacing: 2px;
   text-transform: uppercase; 
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.7); 
 }
 .game-list-header > .row{
   padding: 11px 20px 15px 0px; 
@@ -343,9 +311,10 @@ body{
 
 .game-list-container{
   overflow: scroll;
-  height: 31.5vh;
+  height: 40.5vh;
   background-color: white;
   color: black;
+  margin-top: -7px; 
   text-align: center;
   font-size: 13px;
   font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
@@ -364,13 +333,12 @@ body{
 .gameinfobox{
   padding: 20px ;
   background: rgba(0, 0, 0, 0.4);
+  height: 100%;
   font-size: 11px;
   font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
   letter-spacing: 1px;
   color: white;
-  height: 36.5vh;
-  overflow: scroll;
-  margin-top: 0.7vh;
+
 }
 
 .textpad{
@@ -398,21 +366,17 @@ textarea{
   height: 109px;
 }
 
-.postgame.row {
-    min-height: 39vh;
-    background-color: rgba(0, 0, 0, 0.4);
-    margin-top: 0;
-    padding-top: 10px;
+.postgame.row{
+  min-height: 31vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  margin-top: -7px;
+  padding-top: 10px;
 }
 .postsubmit{
   margin:20px 0;
-  -webkit-appearance: none;
 }
 .post-map{
-  height: 56vh !important;
-}
-form#create-game-form {
-    padding: 0;
+  height: 63vh !important;
 }
 .date.row > .col-sm-6{
   padding: 0;
@@ -424,8 +388,6 @@ h5{
   text-transform: uppercase;
   font-size: 15px; 
 }
-
-
 /*|_______________________________________________________________________________________________|*/
 /*|_______________________________________________________________________________________________|*/
 
@@ -470,12 +432,8 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
   max-width: 100%;
   margin: 0;
 }
-.wide{
-  padding: 0;
-}
-.date col-12{
-  padding: 0;
-}
+
+
 .col-md-4,.col-lg-4, .col-lg-8, .col-md-8{
     padding: 0;
     padding-top: 10px;
