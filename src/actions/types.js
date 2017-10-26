@@ -3,7 +3,12 @@ export default {
     GET_SINGLE_GAME: 'get_single_game',
     UPDATE_LAT_LON: 'update_lat_lon',
     GET_USER_HISTORY: 'get_user_history',
-    SIGNED_IN: 'signed_in',
+    SIGN_IN: 'signed_in',
     UPDATE_ZIPCODE: 'update_zipcode',
-    UPDATE_GAME_ID: 'update_game_id'
+    UPDATE_GAME_ID: 'update_game_id',
+    SIGN_OUT: 'sign_out',
+    RESET_GAME_ID: 'reset_game_id',
+    LEAVE_GAME: 'leave_game',
+    CLEAR_USER_HISTORY: 'clear_user_history'
+    
 }

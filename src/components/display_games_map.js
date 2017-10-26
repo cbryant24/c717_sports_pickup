@@ -42,22 +42,33 @@ const MyMapComponent = compose(
   withScriptjs,
   withGoogleMap
 )((props) => {
-  let lat = props.map_info.lat_long.lat || 33.552085 ;
-  let lng = props.map_info.lat_long.lon || -117.666035;
-  // if(props.map_info.lat_long) {
-  //   lat = props.map_info.lat_long.lat;
-  //   lng = props.map_info.lat_long.lon;
-  // }
-  console.log('this is the props from the display games map 11:10', props)
-  if(props.map_info.active_games) {
-    if(props.map_info.active_games.length > 0) {
-      const markers = props.map_info.active_games.data.data.map( (item, idx) => {
+  const { pathname } = props.location.location
+  const {lat_long} = props.map_info  
+  if(pathname === '/post_game') {
+    let lat = lat_long.lat || 34.043017
+    let lng = lat_long.lon || -118.267254
+
+    return (
+      <GoogleMap
+      defaultZoom={15}
+      center= {{ lat, lng }}>
+        <Marker position={{ lat, lng }} onClick={props.onMarkerClick} />
+      </GoogleMap>
+    )
+  }
+
+  if(pathname === '/find_game') {
+    let lat = props.map_info.active_games.length > 0 ? props.map_info.active_games[0].latitude : 33.7175
+    let lng = props.map_info.active_games.length > 0 ? props.map_info.active_games[0].longitude : -117.8311
+
+    if(props.map_info.active_games) {
+      const markers = props.map_info.active_games.map( (item, idx) => {
         let lat_lon = {lat: parseFloat(item.latitude), lng: parseFloat(item.longitude)}
         return <Marker key={idx} position={lat_lon} onClick={props.onMarkerClick} />
       })
       return (
         <GoogleMap
-          defaultZoom={7}
+          defaultZoom={5}
           defaultCenter={ {lat: 33.7175, lng: 117.8311}}
           center= {{ lat, lng }}>
           {markers}
@@ -65,16 +76,28 @@ const MyMapComponent = compose(
       )
     }
   }
-  
-  return (
-    <GoogleMap
-      defaultZoom={15}
-      center= {{ lat, lng }}>
-      <Marker position={{ lat, lng }} onClick={props.onMarkerClick} />
-    </GoogleMap>
-  )
-}
-)
+
+  if(pathname === '/your_games') {
+    debugger
+    let lat = props.map_info.user_game_history.games.length > 0 ? props.map_info.user_game_history.games[0].latitude : 33.7175
+    let lng = props.map_info.user_game_history.games.length > 0 ? props.map_info.user_game_history.games[0].longitude : -117.8311
+
+    if(props.map_info.user_game_history) {
+      const markers = props.map_info.user_game_history.games.map( (item, idx) => {
+        let lat_lon = {lat: parseFloat(item.latitude), lng: parseFloat(item.longitude)}
+        return <Marker key={idx} position={lat_lon} onClick={props.onMarkerClick} />
+      })
+      return (
+        <GoogleMap
+          defaultZoom={5}
+          defaultCenter={ {lat: 33.7175, lng: -117.8311}}
+          center= {{ lat, lng }}>
+          {markers}
+        </GoogleMap>
+      )
+    }
+  }
+})
 
 class MyFancyComponent extends React.PureComponent {
   // state = {
@@ -97,8 +120,10 @@ class MyFancyComponent extends React.PureComponent {
   }
 
   render() {
+    console.log(this.props)
     return (
       <MyMapComponent
+        location={this.props.history}
         onMarkerClick={this.handleMarkerClick}
         map_info={this.props.lat_lon}
       />

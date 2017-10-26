@@ -4,10 +4,14 @@ const DEFAULT_STATE= {
     active_games: [],
     single_game: {},
     lat_lon: {},
-    user_game_history: [],
+    user_game_history: {
+        games: [],
+        resp: false
+    },
     auth: false,
     zipcode: '',
-    game_id: ''
+    game_id: '',
+    auth: '',
 };
 
 export default function (state = DEFAULT_STATE, action) {
@@ -17,17 +21,24 @@ export default function (state = DEFAULT_STATE, action) {
         case types.GET_SINGLE_GAME:
             return {...state, single_game: action.payload}
         case types.UPDATE_LAT_LON:
-            return {...state, lat_lon_zip: action.payload }
+            return {...state, lat_lon: action.payload}
         case types.GET_USER_HISTORY:
-            return {...state, user_game_history: action.payload.data.data}
-        case types.SIGNED_IN:
-            return {...state, auth: action.payload.data.data}
+            return {...state, user_game_history: action.payload}
+        case types.SIGN_IN:
+            return {...state, auth: action.payload}
+        case types.SIGN_OUT:
+            return {...state, auth: action.payload}
+        case types.CLEAR_USER_HISTORY:
+        debugger
+            return {...state, user_game_history: action.payload}
         case types.UPDATE_ZIPCODE:
-            console.log('the zipcode is hopefully updating', action)
             return {...state, zipcode: action.payload}
         case types.UPDATE_GAME_ID:
-            console.log('this is the update for the game id in the reducer', action)
             return {...state, game_id: action.payload}
+        case types.RESET_GAME_ID:
+            return {...state, game_id: action.payload}
+        case types.LEAVE_GAME:
+            return {...state, user_game_history: action.payload}
         default:
             return state 
     }

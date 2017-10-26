@@ -5,11 +5,12 @@ import App from './components/app';
 import {BrowserRouter as Router} from 'react-router-dom'
 import {createStore, applyMiddleware} from 'redux'
 import rootReducer from './reducers';
-import logger from './middleware/logger';
-import redux_promise from 'redux-promise';
+// import logger from './middleware/logger';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger'
 
 
-const createStoreWithMiddleware = applyMiddleware(logger, redux_promise)(createStore);
+const createStoreWithMiddleware = applyMiddleware(logger, thunk)(createStore);
 
 ReactDOM.render(
     <Provider store={createStoreWithMiddleware(rootReducer)}>
