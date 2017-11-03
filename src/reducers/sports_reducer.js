@@ -4,6 +4,7 @@ const DEFAULT_STATE= {
     active_games: [],
     single_game: {},
     lat_lon: {},
+<<<<<<< HEAD
     user_game_history: {
         games: [],
         resp: false
@@ -12,6 +13,9 @@ const DEFAULT_STATE= {
     zipcode: '',
     game_id: '',
     auth: '',
+=======
+    user_game_history: []
+>>>>>>> 9a897b483992d637e508298a059b2d965aebd217
 };
 
 export default function (state = DEFAULT_STATE, action) {
@@ -24,6 +28,7 @@ export default function (state = DEFAULT_STATE, action) {
             return {...state, lat_lon: action.payload}
         case types.GET_USER_HISTORY:
             return {...state, user_game_history: action.payload}
+<<<<<<< HEAD
         case types.SIGN_IN:
             return {...state, auth: action.payload}
         case types.SIGN_OUT:
@@ -39,7 +44,9 @@ export default function (state = DEFAULT_STATE, action) {
             return {...state, game_id: action.payload}
         case types.LEAVE_GAME:
             return {...state, user_game_history: action.payload}
+=======
+>>>>>>> 9a897b483992d637e508298a059b2d965aebd217
         default:
-            return state 
+            return state
     }
 }

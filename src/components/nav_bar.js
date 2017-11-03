@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import logo2 from '../assets/img/logo2.png';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';

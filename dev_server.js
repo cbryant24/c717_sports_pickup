@@ -2,25 +2,27 @@ const { resolve } = require('path');
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const config = require('./webpack.config');
-const npm_config = require('./package.json');
 const PORT = process.env.PORT || 3000;
 
+<<<<<<< HEAD
 const devServer = new WebpackDevServer(webpack(config), {
     contentBase: resolve(__dirname),
     publicPath: '/dist',
+=======
+new WebpackDevServer(webpack(config), {
+    contentBase: resolve(__dirname, 'dist'),
+    publicPath: '/',
+>>>>>>> 9a897b483992d637e508298a059b2d965aebd217
     hot: false,
     historyApiFallback: true,
     quiet: false,
     noInfo: false,
-    proxy: npm_config.proxy,
     stats: {
         assets: false,
         colors: true,
         version: false,
         hash: false,
-        timings: true,
-        children: false,
-        modules: false,
+        timings: false,
         chunks: false,
         chunkModules: false
     }

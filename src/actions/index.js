@@ -78,6 +78,7 @@ export function update_game_id(game_id) {
         type: types.UPDATE_GAME_ID,
         payload: game_id
     }
+<<<<<<< HEAD
 
 }
 
@@ -110,4 +111,6 @@ export function leave_game(game_id, fb_id) {
             })
         })
     }
+=======
+>>>>>>> 9a897b483992d637e508298a059b2d965aebd217
 }
